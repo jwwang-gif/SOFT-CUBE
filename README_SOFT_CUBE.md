@@ -33,21 +33,18 @@ The main database consists of **6,400** CFD simulations combining:
 
 - **8** inflow wind speed conditions
 - **32** inflow wind directions
-- **5** ratios of surface-to-air temperature (ρ)
-- **5** land-cover types (roof, wall, road, vegetation, soil)
+- **5** ratios of surface-to-air temperature
+- **5** land-cover types (roof, wall, road, green, soil)
 
 **Variables stored per grid point:**  
-- Wind velocity components (**u, v, w**)  
-- Air temperature change rates (**r_T**) per land-cover type
+- Wind velocity components (u, v, w)  
+- Air temperature change rates (rt) per land-cover type
 
 ---
 
 ## Auxiliary Databases
 
-### 1. Surface Thermal Forcing
-For each mechanical forcing scenario, **five ρ intervals** were defined for the five land-cover types, resulting in combined datasets of background mechanical and surface thermal forcing.
-
-### 2. Vertical Variations in Wind and Temperature
+### 1. Vertical Variations in Wind and Temperature
 To represent BL dynamics:
 - **Vertical temperature gradients (γ):** –20 K/km to 20 K/km (10 K/km intervals) → 40 datasets.
 - **Vertical wind speed gradients (σ):** –10 m/s/km to 30 m/s/km (10 m/s/km intervals).
@@ -60,17 +57,6 @@ To represent BL dynamics:
 The SOFT CUBE main solver is implemented in **Fortran**.  
 Compile using a standard Fortran compiler (e.g., `gfortran`):
 
-```bash
-gfortran -O3 -o soft_cube SOFT_CUBE.f90
-```
-
-Run the executable with the configuration file:
-
-```bash
-./soft_cube config.in
-```
-
----
 
 ## Software and Data Availability
 
@@ -85,15 +71,5 @@ Run the executable with the configuration file:
   - The software requires the complete dataset to operate; partial datasets are not supported.  
   - Source code and metadata are provided in the repository.  
   - Full access can be granted via a formal data-sharing agreement, subject to institutional approval.
-
----
-
-## Citation
-
-If you use SOFT CUBE in your research, please cite:
-
-```
-[Your citation information will go here after publication]
-```
 
 ---
